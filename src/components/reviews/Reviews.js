@@ -25,7 +25,7 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
         reviewBody: rev.value,
         imdbId: movieId,
       });
-      const updatedReviews = [...reviews, { body: rev.value }];
+      const updatedReviews = [...reviews, { reviewBody: rev.value }];
       rev.value = "";
       setReviews(updatedReviews);
     } catch (err) {

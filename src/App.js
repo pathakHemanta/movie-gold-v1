@@ -7,6 +7,7 @@ import Home from "./components/home/Home";
 import Header from "./components/header/Header";
 import Trailer from "./components/trailer/Trailer";
 import Reviews from "./components/reviews/Reviews";
+import NotFound from "./components/notFound/NotFound";
 
 function App() {
   const [movies, setMovies] = useState();
@@ -28,6 +29,7 @@ function App() {
       const response = await api.get(`/api/v1/movies/${movieId}`);
       const singleMovie = response.data;
       setMovie(singleMovie);
+      console.log(singleMovie);
       setReviews(singleMovie.reviewIds);
     } catch (err) {
       console.error(err);
@@ -56,6 +58,7 @@ function App() {
               />
             }
           ></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Route>
       </Routes>
     </div>
