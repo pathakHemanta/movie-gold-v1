@@ -2,6 +2,8 @@ import React from "react";
 import "./Hero.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
 const Hero = ({ movies }) => {
   return (
@@ -22,6 +24,14 @@ const Hero = ({ movies }) => {
                       </div>
                       <div className="movie-title">
                         <h4>{movie.title}</h4>
+                      </div>
+                      <div className="movie-button-container">
+                        <div className="play-button-icon-container">
+                          <FontAwesomeIcon
+                            className="play-button-icon"
+                            icon={faCirclePlay}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
