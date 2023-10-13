@@ -66,7 +66,7 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
           {reviews?.map((r) => {
             return (
               <>
-                <Row>
+                <Row key={reviews.indexOf(r)}>
                   <Col>{r.reviewBody}</Col>
                 </Row>
                 <Row>

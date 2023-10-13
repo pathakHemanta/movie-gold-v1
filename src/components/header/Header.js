@@ -31,7 +31,7 @@ const Header = () => {
           <Button variant="outline-info" className="me-2">
             Login
           </Button>
-          <Button vairant="outline-info" className="me-2">
+          <Button variant="outline-info" className="me-2">
             Register
           </Button>
         </Navbar.Collapse>
