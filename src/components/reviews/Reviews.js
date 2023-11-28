@@ -21,11 +21,18 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
 
     try {
       console.log(movieId);
-      const response = await api.post("/api/v1/reviews", {
-        reviewBody: rev.value,
-        imdbId: movieId,
-      });
+      const response = await api
+        .post("/api/v1/reviews", {
+          reviewBody: rev.value,
+          imdbId: movieId,
+        })
+        .then((response1) => {
+          console.log(response1);
+        });
       const updatedReviews = [...reviews, { reviewBody: rev.value }];
+
+      console.log(reviews.indexOf(updatedReviews[0]));
+
       rev.value = "";
       setReviews(updatedReviews);
     } catch (err) {
@@ -65,8 +72,8 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
           }
           {reviews?.map((r) => {
             return (
-              <>
-                <Row key={reviews.indexOf(r)}>
+              <Col key={reviews.indexOf(r)}>
+                <Row>
                   <Col>{r.reviewBody}</Col>
                 </Row>
                 <Row>
@@ -74,7 +81,7 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
                     <hr />
                   </Col>
                 </Row>
-              </>
+              </Col>
             );
           })}
         </Col>

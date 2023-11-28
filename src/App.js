@@ -12,12 +12,12 @@ import NotFound from "./components/notFound/NotFound";
 function App() {
   const [movies, setMovies] = useState();
   const [movie, setMovie] = useState();
-  const [reviews, setReviews] = useState();
+  const [reviews, setReviews] = useState([]);
 
   const getMovies = async () => {
     try {
       const response = await api.get("/api/v1/movies");
-      console.log(response.data);
+      // console.log(response.data);
       setMovies(response.data);
     } catch (err) {
       console.log(err);
@@ -29,7 +29,7 @@ function App() {
       const response = await api.get(`/api/v1/movies/${movieId}`);
       const singleMovie = response.data;
       setMovie(singleMovie);
-      console.log(singleMovie);
+      // console.log(singleMovie);
       setReviews(singleMovie.reviewIds);
     } catch (err) {
       console.error(err);
