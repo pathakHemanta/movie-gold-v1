@@ -15,9 +15,18 @@ function App() {
   const [movie, setMovie] = useState();
   const [reviews, setReviews] = useState([]);
 
+  // const username = "user";
+  // const password = "9afbf54b-dd5b-4092-9e3c-db6cc41a4f05";
+  // const encoded = Buffer.from(username + ":" + password).toString("base64");
+
   const getMovies = async () => {
     try {
-      const response = await api.get("/api/v1/movies");
+      const response = await api.get("/api/v1/movies", {
+        auth: {
+          username: "user",
+          password: "9afbf54b-dd5b-4092-9e3c-db6cc41a4f05",
+        },
+      });
       // console.log(response.data);
       setMovies(response.data);
     } catch (err) {
